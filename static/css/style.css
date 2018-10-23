@@ -1,0 +1,15 @@
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 12px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+table {
+    table-layout: fixed;
+    word-break: break-all;
+}
+
+#status_tracking div {
+    padding: 2px 0px;
+}

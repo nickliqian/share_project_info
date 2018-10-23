@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>项目进度共享平台</title>
+{% endblock title %}
+
+{% block script %}
+
+{% endblock script %}
+
+{% block body %}
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <header class="header">
+                <h4><span style="color: darkred"></span>项目进度共享平台</h4>
+            </header>
+
+            <div class="data_scroll table-responsive">
+
+                <table class="table table-striped text-nowrap" style="width:100%">
+                    <colgroup>
+                        <col style="width: 5%">
+                        <col style="width: 3%">
+                        <col style="width: 71%">
+                        <col style="width: 7%">
+                        <col style="width: 7%">
+                        <col style="width: 7%">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>id</th>
+                        <th>内容</th>
+                        <th>状态</th>
+                        <th>负责人</th>
+                        <th>优先级</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for obj in query_list %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ obj.id }}</td>
+                            <td>{{ obj.content }}</td>
+
+                            {% if obj.status == False %}
+                                <td><span style="background-color: #fff818;padding: 10px">进行中</span></td>
+                            {% elif obj.status == True %}
+                                <td><span style="background-color: #5fe85f;padding: 10px">已完成</span></td>
+                            {% endif %}
+
+                            <td>{{ obj.person }}</td>
+
+                            {% if obj.priority == True %}
+                                <td>100</td>
+                            {% elif obj.priority == False %}
+                                <td>10</td>
+                            {% elif obj.priority == None %}
+                                <td>1</td>
+                            {% endif %}
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+
+{% endblock body %}
